@@ -3,6 +3,7 @@ package aconex.jessie.presentation;
 import aconex.jessie.core.Ballot;
 import aconex.jessie.core.Candidate;
 import aconex.jessie.core.Round;
+import aconex.jessie.domain.IRoundServices;
 import aconex.jessie.domain.RoundServices;
 
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import java.util.List;
 
 public class RoundManager {
     private List<Round> _rounds;
-    private RoundServices _roundServices;
+    private IRoundServices _roundServices;
 
     public RoundManager(){
         _rounds = new ArrayList<>();
@@ -18,8 +19,6 @@ public class RoundManager {
     }
 
     public Round CountUpRound(List<Ballot> ballots, List<Candidate> candidates){
-        // Check if calculate finished
-
         // generate this rounds
         Round newRound = _roundServices.GenerateRound(ballots, candidates);
         _rounds.add(newRound);

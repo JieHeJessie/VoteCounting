@@ -3,6 +3,7 @@ package aconex.jessie.presentation;
 import aconex.jessie.core.Ballot;
 import aconex.jessie.core.Candidate;
 import aconex.jessie.core.Round;
+import aconex.jessie.domain.IBallotServices;
 import aconex.jessie.domain.BallotServices;
 
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import java.util.List;
 public class BallotManager {
     private List<Ballot> _ballots;
     private List<Candidate> _candidates;
-    private BallotServices _BallotServices;
+    private IBallotServices _BallotServices;
 
     public BallotManager(){
         _ballots = new ArrayList<>();

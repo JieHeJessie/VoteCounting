@@ -46,6 +46,9 @@ public class Main {
             // wait user input
             String inputLine = scan.nextLine();
 
+            if (inputLine.trim().length() == 0)
+                continue;
+
             if (inputLine.toLowerCase().equals(Constants.TALLY))
                 break;
 
@@ -68,7 +71,7 @@ public class Main {
                 }else {
                     System.out.println(Constants.FAIL_MSG);
                     for(Candidate c: candidates){
-                        if (!c.Exhausted)
+                        if (!c.Eliminate)
                             System.out.println(c.Index + ". " + c.Name);
                     }
                 }

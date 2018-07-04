@@ -1,8 +1,8 @@
 package aconex.jessie.presentation;
 
 import aconex.jessie.core.Candidate;
-import aconex.jessie.core.Round;
-import aconex.jessie.domain.CandidatesServices;
+import aconex.jessie.domain.CandidateServices;
+import aconex.jessie.domain.ICandidateServices;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -13,10 +13,10 @@ import java.util.List;
 
 public class CandidateManager {
     private List<Candidate> _candidate;
-    private CandidatesServices _candidateListServices;
+    private ICandidateServices _candidateListServices;
 
     public CandidateManager(){
-        _candidateListServices = new CandidatesServices();
+        _candidateListServices = new CandidateServices();
     }
 
     public List<Candidate> GetCandidate(){

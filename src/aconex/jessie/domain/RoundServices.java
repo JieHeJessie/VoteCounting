@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class RoundServices {
+public class RoundServices implements IRoundServices {
     /*
     * Calculate current round with ballot
     * */
@@ -38,7 +38,7 @@ public class RoundServices {
             round.Success = false;
             round.Finished = false;
             round.EliminateCandidate = eliminate;
-            eliminate.Exhausted = true;
+            eliminate.Eliminate = true;
         }
 
         return round;
@@ -90,7 +90,7 @@ public class RoundServices {
 
         Map<Candidate, Integer> rank = new HashMap<>();
         allCandidates.stream()
-                .filter(c -> !c.Exhausted)
+                .filter(c -> !c.Eliminate)
                 .forEach(c -> rank.put(c, 0));
 
         List<Ballot> validBallots = ballots.stream()
@@ -112,7 +112,7 @@ public class RoundServices {
         int available = 0;
         for (int index = 0; index < votes.size(); index ++){
             Vote v = votes.get(index);
-            if (v.Valid && !v.Candidate.Exhausted){
+            if (v.Valid && !v.Candidate.Eliminate){
                 if (available == preference)
                     return v.Candidate;
                 else

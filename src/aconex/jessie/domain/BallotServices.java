@@ -6,9 +6,8 @@ import aconex.jessie.core.Candidate;
 import aconex.jessie.core.Vote;
 
 import java.util.List;
-import java.util.Optional;
 
-public class BallotServices {
+public class BallotServices implements IBallotServices {
     /*
     * Generate ballot with user input
     * Validate input error
@@ -41,9 +40,8 @@ public class BallotServices {
     * */
     public Ballot ValidateExhausted(Ballot ballot){
         boolean remaining = ballot.Votes.stream()
-                .anyMatch(vote -> !vote.Candidate.Exhausted);
+                .anyMatch(vote -> !vote.Candidate.Eliminate);
         ballot.Exhausted = !remaining;
-
         return ballot;
     }
 
