@@ -58,4 +58,4 @@ cd VoteCounting/Test
 ```
 Right-click on Run All 'Tests' with coverage
 
-Output: 100% (all logic store in domain file)
+Output: 100% (all logic functions store in domain file)
