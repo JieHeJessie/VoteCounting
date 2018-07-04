@@ -1,6 +1,7 @@
 package aconex.jessie.presentation;
 
 import aconex.jessie.core.Ballot;
+import aconex.jessie.core.Candidate;
 import aconex.jessie.core.Round;
 import aconex.jessie.domain.BallotServices;
 
@@ -9,6 +10,7 @@ import java.util.List;
 
 public class BallotManager {
     private List<Ballot> _ballots;
+    private List<Candidate> _candidates;
     private BallotServices _BallotServices;
 
     public BallotManager(){
@@ -20,8 +22,12 @@ public class BallotManager {
         return this._ballots;
     }
 
+    public void SetCandidates(List<Candidate> candidates){
+        this._candidates = candidates;
+    }
+
     public Ballot AddBallot(String voteString){
-        Ballot newBallot = _BallotServices.GenerateBallot(voteString);
+        Ballot newBallot = _BallotServices.GenerateBallot(_candidates, voteString);
         if(newBallot.Valid == true)
             _ballots.add(newBallot);
 
@@ -31,15 +37,9 @@ public class BallotManager {
     public List<Ballot> UpdateBallotWithRound(Round round){
         if (!round.Finished && round.EliminateCandidate != null)
             return _ballots;
-
-        List<Ballot> newBallots = new ArrayList<>();
         for (Ballot ballot : _ballots) {
-            Ballot newBallot = _BallotServices.RemoveCandidate(ballot, round.EliminateCandidate);
-            if (newBallot.Valid && !newBallot.Exhausted){
-                newBallots.add(newBallot);
-            }
+            _BallotServices.ValidateExhausted(ballot);
         }
-        _ballots = newBallots;
         return _ballots;
     }
 

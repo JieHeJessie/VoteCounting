@@ -1,6 +1,7 @@
 package aconex.jessie.presentation;
 
 import aconex.jessie.core.Ballot;
+import aconex.jessie.core.Candidate;
 import aconex.jessie.core.Round;
 import aconex.jessie.domain.RoundServices;
 
@@ -16,13 +17,17 @@ public class RoundManager {
         _roundServices = new RoundServices();
     }
 
-    public Round CountUpRound(List<Ballot> ballots){
+    public Round CountUpRound(List<Ballot> ballots, List<Candidate> candidates){
         // Check if calculate finished
 
         // generate this rounds
-        Round newRound = _roundServices.GenerateRound(_rounds.size(), ballots);
+        Round newRound = _roundServices.GenerateRound(ballots, candidates);
         _rounds.add(newRound);
         return newRound;
+    }
+
+    public int GetRoundNumber(){
+        return _rounds.size();
     }
 
 }

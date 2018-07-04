@@ -1,14 +1,19 @@
 package aconex.jessie.core;
 
-import aconex.jessie.consts.ErrorType;
 import aconex.jessie.core.Vote;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Ballot {
+
+    public Ballot(){
+        Votes = new ArrayList<>();
+        Valid = true;
+    }
+
     public boolean Valid;
     public boolean Exhausted;
-    public String VoteInput;
-    public List<Vote> Vote;
-    public ErrorType error;
+    public String InputString;
+    public List<Vote> Votes;
 }
