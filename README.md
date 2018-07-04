@@ -9,7 +9,9 @@ This project is used to implement the vote counting.
 
 2. The number of candidates up to 26, which means candidates only are sorted by A to Z.
 
-3. No result:
+3. If the user input is incorrect, the ballot become invalid. 
+
+4. No result:
 
 For example: two candidate A and B, one user input “A”, another user input “B”, it cannot calculate the winner. At this case, the system will print “A and B have the same votes”.
 
@@ -35,7 +37,11 @@ cd VoteCounting/src/aconex/jessie/Main.java
 
 ```
 Right-click on project
-Run As > Java Application
+Run 'Main' (it will run with default txt file)
+
+OR
+
+Run Configuration and input file path in program arguments
 
 
 ## Testing of the application
@@ -46,4 +52,5 @@ This project used Junit to test
 cd VoteCounting/Test
 ```
 Right-click on Run
+
 
