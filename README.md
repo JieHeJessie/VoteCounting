@@ -26,7 +26,6 @@ In order to easily setup and manage all the development dependencies, setting up
 Run the following command to startup the application
 ```
 git clone https://github.com/JieHeJessie/VoteCounting.git
-
 ```
 ## IntelliJ IDEA Instructions
 
@@ -34,7 +33,6 @@ Open the project
 
 ```
 cd VoteCounting/src/aconex/jessie/Main.java
-
 ```
 Right-click on project
 Run 'Main' (it will run with default txt file)
