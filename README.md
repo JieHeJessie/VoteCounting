@@ -1,7 +1,7 @@
 
 # VoteCounting_CodeChallenge
 
-This project is used to implement the vote counting.
+This project is used to implement the vote counting. 
 
 ## Assumptions
 
@@ -53,4 +53,11 @@ cd VoteCounting/Test
 ```
 Right-click on Run
 
+## Coverage of testing
 
+```
+cd VoteCounting/Test
+```
+Right-click on Run All 'Tests' with coverage
+
+Output: 100% (all logic store in domain file)
